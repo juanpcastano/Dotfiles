@@ -12,7 +12,7 @@ fi
 # Automatic install section
 if [[ $install_choice == "a" ]]; then
     sudo chmod -R 777 $HOME
-    yay -S reflector rsync python-pywal16 swww waybar swaync starship myfetch neovim python-pywalfox hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme illogical-impulse-bibata-modern-classic-bin thunar gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code blueman bluez pipewire pipewire-pulse pipewire-alsa pipewire-jack pavucontrol pulsemixer gnome-network-displays gst-plugins-bad
+    yay -S reflector rsync python-pywal16 swww waybar swaync starship myfetch neovim hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme bibata-cursor-theme nautilus gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code blueman bluez pipewire pipewire-pulse pipewire-alsa pipewire-jack pavucontrol pulsemixer gnome-network-displays gst-plugins-bad
     sudo reflector --country 'US' --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
     systemctl enable bluetooth
     systemctl --user enable pipewire.service
@@ -23,8 +23,8 @@ if [[ $install_choice == "a" ]]; then
     # Set wallpaper
     wal -i ~/Dotfiles/wallpapers/pywallpaper.jpg -n
     # Dynamic-Cursors setup
-    hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
-    hyprpm enable dynamic-cursors
+    # hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
+    # hyprpm enable dynamic-cursors
     # Copy files
     sudo cp -a ~/Dotfiles/wallpapers ~/
     sudo cp -a ~/Dotfiles/.config/* ~/.config/
@@ -40,7 +40,7 @@ elif [[ $install_choice == "m" ]]; then
         sudo reflector --country 'US' --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
     fi
         # Confirm each package installation
-    for package in python-pywal16 swww waybar swaync starship myfetch neovim python-pywalfox hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme illogical-impulse-bibata-modern-classic-bin thunar gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code; do
+    for package in python-pywal16 swww waybar swaync starship myfetch neovim hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme bibata-cursor-theme nautilus gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code; do
         read -p "Do you want to install $package? (y/n, default: y): " choice
         choice=${choice:-y}  # Default to 'y' if empty
         if [[ "$choice" == "y" ]]; then
@@ -67,12 +67,12 @@ elif [[ $install_choice == "m" ]]; then
         systemctl --user start pipewire-pulse.service
     fi
     # Dynamic-Cursors setup
-    read -p "Do you want to enable Dynamic-Cursors? (y/n, default: y): " cursors_choice
-    cursors_choice=${cursors_choice:-y}  # Default to 'y' if empty
-    if [[ "$cursors_choice" == "y" ]]; then
-        hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
-        hyprpm enable dynamic-cursors
-    fi
+    # read -p "Do you want to enable Dynamic-Cursors? (y/n, default: y): " cursors_choice
+    # cursors_choice=${cursors_choice:-y}  # Default to 'y' if empty
+    # if [[ "$cursors_choice" == "y" ]]; then
+    #     hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
+    #     hyprpm enable dynamic-cursors
+    # fi
     # Copy files
     sudo cp -a ~/Dotfiles/wallpapers ~/
     sudo cp -a ~/Dotfiles/.config/* ~/.config/
