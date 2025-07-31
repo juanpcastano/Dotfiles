@@ -20,6 +20,7 @@ if [[ $install_choice == "a" ]]; then
     systemctl --user start pipewire.service
     systemctl --user start pipewire-pulse.service
     sudo systemctl enable avahi-daemon
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
     # Set wallpaper
     wal -i ~/Dotfiles/wallpapers/pywallpaper.jpg -n
     # Dynamic-Cursors setup
@@ -65,6 +66,12 @@ elif [[ $install_choice == "m" ]]; then
         systemctl --user enable pipewire-pulse.service
         systemctl --user start pipewire.service
         systemctl --user start pipewire-pulse.service
+    fi
+
+    read -p "Do you want to configure SDDM? (y/n, default: y): " pipewire_choice
+    pipewire_choice=${pipewire_choice:-y}  # Default to 'y' if empty
+    if [[ "$pipewire_choice" == "y" ]]; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
     fi
     # Dynamic-Cursors setup
     # read -p "Do you want to enable Dynamic-Cursors? (y/n, default: y): " cursors_choice
