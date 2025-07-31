@@ -68,9 +68,9 @@ elif [[ $install_choice == "m" ]]; then
         systemctl --user start pipewire-pulse.service
     fi
 
-    read -p "Do you want to configure SDDM? (y/n, default: y): " pipewire_choice
-    pipewire_choice=${pipewire_choice:-y}  # Default to 'y' if empty
-    if [[ "$pipewire_choice" == "y" ]]; then
+    read -p "Do you want to configure SDDM? (y/n, default: y): " sddm_choice
+    sddm_choice=${sddm_choice:-y}  # Default to 'y' if empty
+    if [[ "$sddm_choice" == "y" ]]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
     fi
     # Dynamic-Cursors setup
