@@ -7,7 +7,7 @@
 
   ### Install
   ```
-  cd && git clone https://github.com/elifouts/Dotfiles.git
+  cd && git clone https://github.com/juanpcastano/Dotfiles.git
   cd ~/Dotfiles/InstallScripts
   chmod +x install.sh
   ./install.sh
