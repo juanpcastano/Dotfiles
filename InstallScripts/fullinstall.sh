@@ -12,7 +12,7 @@ fi
 # Automatic install section
 if [[ $install_choice == "a" ]]; then
     sudo chmod -R 777 $HOME
-    yay -S reflector rsync python-pywal16 swww waybar swaync starship myfetch neovim hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme bibata-cursor-theme nautilus gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code blueman bluez pipewire pipewire-pulse pipewire-alsa pipewire-jack pavucontrol pulsemixer gnome-network-displays gst-plugins-bad
+    yay -S git reflector rsync python-pywal16 swww waybar swaync starship myfetch neovim hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme bibata-cursor-theme nautilus gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code blueman bluez pipewire pipewire-pulse pipewire-alsa pipewire-jack pavucontrol pulsemixer gnome-network-displays gst-plugins-bad
     sudo reflector --country 'US' --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
     systemctl enable bluetooth
     systemctl --user enable pipewire.service
@@ -41,7 +41,16 @@ elif [[ $install_choice == "m" ]]; then
         sudo reflector --country 'US' --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
     fi
         # Confirm each package installation
-    for package in python-pywal16 swww waybar swaync starship myfetch neovim hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme bibata-cursor-theme nautilus gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code; do
+    for package in git reflector rsync python-pywal16 swww waybar swaync starship myfetch neovim hypridle hyprpicker hyprshot hyprlock pyprland wlogout fd cava brightnessctl clock-rs-git nerd-fonts nwg-look qogir-icon-theme materia-gtk-theme bibata-cursor-theme nautilus gvfs tumbler eza bottom htop libreoffice-fresh spotify ncspot discord code; do
+        read -p "Do you want to install $package? (y/n, default: y): " choice
+        choice=${choice:-y}  # Default to 'y' if empty
+        if [[ "$choice" == "y" ]]; then
+            yay -S $package
+            clear
+        fi
+    done
+        #personal packages
+    for package in os-prober update-grub brave-bin polkit gnome-disk-utility udisks2 hyprpolkitagent gnome-keyring; do
         read -p "Do you want to install $package? (y/n, default: y): " choice
         choice=${choice:-y}  # Default to 'y' if empty
         if [[ "$choice" == "y" ]]; then
