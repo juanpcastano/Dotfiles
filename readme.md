@@ -2,7 +2,7 @@
 
 
 
-**[Original Repo](https://github.com/Alexays/Waybar) By [Elifouts](https://github.com/elifouts)**
+**[Original Repo](https://github.com/elifouts/Dotfiles) By [Elifouts](https://github.com/elifouts)**
   
 
   ### Install
